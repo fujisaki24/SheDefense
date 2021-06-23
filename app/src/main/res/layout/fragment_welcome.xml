@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:scaleType="center"
+
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/welcome"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/nunito_bold"
+        android:text="Welcome"
+        android:textColor="@color/pinkPrimary"
+        android:textSize="50dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:fontFamily="@font/comfortaa_light"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="This is SheDefense, a Women Safety App.We here wanted to provide a safety precautions to women."
+        android:textAlignment="center"
+        android:textColor="@color/pinkPrimary"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="15dp"
+        android:scaleType="center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/p1"/>
+</RelativeLayout>

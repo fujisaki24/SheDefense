@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntroNameEnterActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="Before beginning,\nEnter your name."
+        android:textColor="@color/pinkPrimary"
+        android:textSize="40dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Name"
+        app:boxStrokeColor="@color/pinkPrimary"
+        app:endIconMode="clear_text"
+        app:hintTextColor="@color/pinkPrimary"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/pinkPrimary"
+            android:fontFamily="@font/comfortaa_light"
+            android:drawableStart="@drawable/custom_person_drawable"
+            android:drawablePadding="12dp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/submit_btn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="350dp"
+        android:background="@color/pinkPrimary"
+        android:src="@drawable/ic_baseline_arrow_forward_24"
+        android:tint="@color/white"/>
+
+</RelativeLayout>
