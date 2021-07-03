@@ -37,6 +37,7 @@ public class IntroNameEnterActivity extends AppCompatActivity {
                    String name = name_txt.getText().toString();
                    SharedPreferences.Editor editor = sharedPreferences.edit();
                    editor.putString("Username",name);
+                   editor.putString("FirstTimeInstall","No");
                    editor.commit();
 
                    Intent i = new Intent(getApplicationContext(),HomeActivity.class);
@@ -47,6 +48,7 @@ public class IntroNameEnterActivity extends AppCompatActivity {
         else
         {
             Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             startActivity(i);
         }
     }

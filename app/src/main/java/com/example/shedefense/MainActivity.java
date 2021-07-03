@@ -15,7 +15,7 @@ import android.widget.ImageView;
      SharedPreferences sharedPreferences;
      ImageView splashbg;
      private static final String myPreference = "Camalot";
-    private static int splash_timeout = 2000;
+    private static int splash_timeout = 4000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +31,9 @@ import android.widget.ImageView;
             @Override
             public void run() {
                 if(firstTime.equals("Yes")) {
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("FirstTimeInstall","No");
-                    editor.commit();
                     Intent start = new Intent(getApplicationContext(), IntroActivity.class);
                     startActivity(start);
-                    overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+                    overridePendingTransition(R.anim.slide_in, R.anim.slide_in);
                     finish();
                 }
                 else
@@ -48,4 +45,9 @@ import android.widget.ImageView;
             }
         },splash_timeout);
     }
-}
+
+     @Override
+     public void onBackPressed() {
+         //do nothing
+     }
+ }

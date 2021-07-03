@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BlurMaskFilter;
@@ -67,7 +68,8 @@ public class HomeActivity extends AppCompatActivity {
         aboutus_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"The about us page in development",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(),AboutUsActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -85,14 +87,14 @@ public class HomeActivity extends AppCompatActivity {
         new MaterialAlertDialogBuilder(this,R.style.MyOpaqueAlertDialog)
                 .setTitle("Exit")
                 .setMessage("Are you sure you want to exit?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finishAffinity();
-                        System.exit(0);
-                    }
-                }).setNegativeButton("No",null)
-                .show();
+                .setPositiveButton("No", null)
+                .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finishAffinity();
+                System.exit(0);
+            }
+        }).show();
     }
 
     @Override

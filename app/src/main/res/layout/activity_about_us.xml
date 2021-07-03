@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUsActivity">
+
+    <RelativeLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/comp_icon_bg"
+        >
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/ic_comp_icon"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Developers"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
+        android:fontFamily="@font/comfortaa_light"
+        android:textColor="@color/pinkPrimary"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/profile_bg"
+        android:elevation="10dp"
+        android:layout_marginTop="250dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/alby_user"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alby Cherian Koshy"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:textSize="17dp"
+            android:textColor="@color/pinkPrimary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Programmer/UI Designer"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/comfortaa_light"
+            android:textSize="12dp"
+            android:textColor="@color/pinkPrimary"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/profile_bg"
+        android:elevation="10dp"
+        android:layout_marginTop="380dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/virat_user"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Virat Kaushik"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:textSize="17dp"
+            android:textColor="@color/pinkPrimary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Programmer"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/comfortaa_light"
+            android:textSize="12dp"
+            android:textColor="@color/pinkPrimary"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/profile_bg"
+        android:elevation="10dp"
+        android:layout_marginTop="510dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/pulkit_user"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pulkit Kumar Sinha"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:textSize="17dp"
+            android:textColor="@color/pinkPrimary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Programmer"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/comfortaa_light"
+            android:textSize="12dp"
+            android:textColor="@color/pinkPrimary"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click on the profile to see more info"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="@font/comfortaa_light"/>
+</RelativeLayout>

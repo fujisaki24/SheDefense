@@ -41,7 +41,8 @@
 
     <style name="MyOpaqueAlertDialog" parent="ThemeOverlay.AppCompat.Dialog.Alert">
         <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MyApp.Dialog.Rounded</item>
-        <item name="fontFamily">@font/comfortaa_light</item>
+        <item name="fontFamily">@font/comfortaa_bold</item>
+        <item name="textAppearanceBody2">@font/comfortaa_light</item>
         <item name="android:textColorPrimary">@color/pinkPrimary</item>
         <item name="android:textColor">@color/pinkPrimary</item>
         <item name="colorPrimary">@color/pinkPrimary</item>
