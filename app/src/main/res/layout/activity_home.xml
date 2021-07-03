@@ -26,9 +26,139 @@
         android:text="Good Day,\nUsername"
         android:textSize="45dp"
         android:layout_marginTop="55dp"
-        android:paddingLeft="12dp"
+        android:paddingLeft="20dp"
         android:textColor="@color/pinkPrimary"
         android:fontFamily="@font/comfortaa_bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Options"
+        android:textSize="15dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="25dp"
+        android:textColor="@color/pinkPrimary"
+        android:fontFamily="@font/comfortaa_bold"/>
+
+    <RelativeLayout
+        android:id="@+id/start_btn"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="20dp"
+        android:elevation="10dp"
+        android:background="@drawable/startbtn_bg">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_start_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:textSize="25dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:textColor="@color/white"
+            android:text="Start" />
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/contacts_btn"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="250dp"
+            android:layout_marginRight="20dp"
+            android:elevation="10dp"
+            android:background="@drawable/emcall_bg">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/ic_em_contacts"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:textSize="25dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:textColor="@color/white"
+                android:text="Contacts" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/aboutus_btn"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="470dp"
+            android:layout_marginLeft="20dp"
+            android:elevation="10dp"
+            android:background="@drawable/aboutusbtn_bg">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/ic_about_us_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:textSize="25dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:textColor="@color/pinkPrimary"
+                android:text="About Us" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/exit_btn"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="470dp"
+            android:layout_marginRight="20dp"
+            android:elevation="10dp"
+            android:background="@drawable/exitbtn_bg">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/ic_exit_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:textSize="25dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/comfortaa_bold"
+                android:textColor="@color/white"
+                android:text="Exit" />
+        </RelativeLayout>
 
     </RelativeLayout>
 

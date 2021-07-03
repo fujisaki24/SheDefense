@@ -49,7 +49,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="350dp"
-        android:background="@color/pinkPrimary"
+        android:background="@drawable/startbtn_bg"
         android:src="@drawable/ic_baseline_arrow_forward_24"
         android:tint="@color/white"/>
 
