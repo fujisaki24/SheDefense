@@ -42,6 +42,7 @@ public class IntroNameEnterActivity extends AppCompatActivity {
 
                    Intent i = new Intent(getApplicationContext(),HomeActivity.class);
                    startActivity(i);
+                   finish();
                }
            });
         }
@@ -50,6 +51,7 @@ public class IntroNameEnterActivity extends AppCompatActivity {
             Intent i = new Intent(getApplicationContext(),HomeActivity.class);
             overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             startActivity(i);
+            finish();
         }
     }
 

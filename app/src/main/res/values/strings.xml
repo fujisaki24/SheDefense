@@ -2,4 +2,9 @@
     <string name="app_name">SheDefense</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="alarm_button">Security Alarm</string>
+    <string name="call_button">Emergency Call</string>
+    <string name="sms_button">To send SMS with your location</string>
+    <string name="phonebook_button">Phonebook for easy access</string>
+    <string name="close_button">Close the app</string>
 </resources>

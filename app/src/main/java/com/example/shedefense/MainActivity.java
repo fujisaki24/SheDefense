@@ -1,11 +1,18 @@
  package com.example.shedefense;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
@@ -14,8 +21,10 @@ import android.widget.ImageView;
 
      SharedPreferences sharedPreferences;
      ImageView splashbg;
+     private static final int REQUEST_PHONE_CALL=1;
+     private static final int REQUEST_LOCATION=1;
      private static final String myPreference = "Camalot";
-    private static int splash_timeout = 4000;
+     private static int splash_timeout = 4000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +35,7 @@ import android.widget.ImageView;
         sharedPreferences = getSharedPreferences(myPreference,MODE_PRIVATE);
         splashbg = findViewById(R.id.splash_bg);
         String firstTime = sharedPreferences.getString("FirstTimeInstall","Yes");
-
+        getPermission();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -49,5 +58,15 @@ import android.widget.ImageView;
      @Override
      public void onBackPressed() {
          //do nothing
+     }
+
+     public void getPermission() {
+         if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PHONE_CALL);
+
+         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+
+
      }
  }

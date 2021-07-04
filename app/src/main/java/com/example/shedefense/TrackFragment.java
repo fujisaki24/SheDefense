@@ -72,6 +72,7 @@ public class TrackFragment extends Fragment {
             public void onClick(View v)
             {
                 Intent intent = new Intent(getActivity(), IntroNameEnterActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
 
             }
