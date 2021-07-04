@@ -35,9 +35,6 @@ public class WidgetService extends Service
     ImageButton alarm_btn,call_btn,phonebook_btn,sms_btn,close_btn;
     boolean onClickedAlarm=false;
     private final static String default_notification_channel_id = "default";
-
-    //Uri notification;
-    //Ringtone r ;
     MediaPlayer mPlayer;
 
 
@@ -135,7 +132,8 @@ public class WidgetService extends Service
                 }
                 else
                 {
-                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "Calling Police", Toast.LENGTH_SHORT).show();
+                    //startActivity(intent);
                 }
                 //Toast.makeText(getApplicationContext(), "Feature for Emergency Calls", Toast.LENGTH_SHORT).show();
             }
@@ -153,7 +151,8 @@ public class WidgetService extends Service
                 }
                 else
                 {
-                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "Calling Women Safety Helpline", Toast.LENGTH_SHORT).show();
+                   // startActivity(intent);
                 }
                 return true;
             }
@@ -182,6 +181,7 @@ public class WidgetService extends Service
         sms_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Feature Disabled", Toast.LENGTH_SHORT).show();
                 /*Intent open_map = new Intent(getApplicationContext(),SMSapp.class);
                 open_map.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  //9521201009
                 startActivity(open_map);
