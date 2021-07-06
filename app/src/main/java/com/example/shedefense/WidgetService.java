@@ -91,6 +91,15 @@ public class WidgetService extends Service
             }
         });
 
+        close_btn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                stopSelf();
+                System.exit(0);
+                return true;
+            }
+        });
+
         alarm_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
