@@ -135,7 +135,10 @@ public class HomeActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.settings:
-                Toast.makeText(getApplicationContext(),"Settings not developed",Toast.LENGTH_LONG).show();
+                Intent settings = new Intent(getApplicationContext(),SettingsActivity.class);
+                startActivity(settings);
+                finish();
+                //Toast.makeText(getApplicationContext(),"Settings not developed",Toast.LENGTH_LONG).show();
                 break;
             default:
                 Toast.makeText(getApplicationContext(),"Nothing here",Toast.LENGTH_LONG).show();

@@ -46,8 +46,9 @@
         <item name="android:textColorPrimary">@color/pinkPrimary</item>
         <item name="android:textColor">@color/pinkPrimary</item>
         <item name="colorPrimary">@color/pinkPrimary</item>
-    </style>
 
+
+    </style>
     <style name="ShapeAppearanceOverlay.MyApp.Dialog.Rounded" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">20dp</item>

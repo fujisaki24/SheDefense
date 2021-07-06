@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:fontFamily="@font/comfortaa_bold"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="25dp"
+        android:textColor="@color/pinkPrimary"/>
+
+    <RelativeLayout
+        android:id="@+id/change_name_settings"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/profile_bg"
+        android:elevation="5dp"
+        android:layout_marginTop="70dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change Name"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="2dp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:textSize="17dp"
+            android:textColor="@color/pinkPrimary"/>
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="username"
+            android:textAlignment="textStart"
+            android:fontFamily="@font/comfortaa_light"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="5dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/show_tut"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/profile_bg"
+        android:elevation="5dp"
+        android:layout_marginTop="170dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Tutorial"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="2dp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:textSize="17dp"
+            android:textColor="@color/pinkPrimary"/>
+    </RelativeLayout>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="*Current Available Settings"
+    android:layout_alignParentBottom="true"
+    android:layout_centerInParent="true"
+    android:fontFamily="@font/comfortaa_light"
+    android:textSize="15dp"
+    android:layout_marginBottom="40dp"/>
+</RelativeLayout>

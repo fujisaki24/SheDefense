@@ -1,9 +1,12 @@
 package com.example.shedefense;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -19,6 +22,7 @@ import android.widget.ImageButton;
 public class TrackFragment extends Fragment {
 
     ImageButton next;
+    private static final String myPreference = "Camalot";
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -66,14 +70,25 @@ public class TrackFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root_view = inflater.inflate(R.layout.fragment_track, container, false);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(myPreference, Context.MODE_PRIVATE);
+        String firstTime = sharedPreferences.getString("FirstTimeInstall","Yes");
         ImageButton next = (ImageButton)root_view.findViewById(R.id.next_btn);
         next.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
-                Intent intent = new Intent(getActivity(), IntroNameEnterActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
+                if(firstTime.equals("Yes")) {
+                    Intent intent = new Intent(getActivity(), IntroNameEnterActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                }
+                else
+                {
+                    Intent intent = new Intent(getActivity(),SettingsActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+
+                }
 
             }
 

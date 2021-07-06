@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.shedefense">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -16,7 +15,6 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,26 +22,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SheDefense">
-
-        <activity android:name=".AboutUsActivity"
-            android:theme="@style/Theme.SheDefense.Main"
-            android:screenOrientation="portrait"></activity>
+        <activity android:name=".SettingsActivity"
+            android:theme="@style/Theme.SheDefense.Main"></activity>
+        <activity
+            android:name=".AboutUsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SheDefense.Main" />
         <activity
             android:name=".HomeActivity"
-            android:theme="@style/Theme.SheDefense.Main"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SheDefense.Main" />
         <activity
             android:name=".IntroNameEnterActivity"
-            android:theme="@style/Theme.SheDefense.Main"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SheDefense.Main" />
         <activity
             android:name=".IntroActivity"
-            android:theme="@style/Theme.SheDefense.Intro"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SheDefense.Intro" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.SheDefense.NoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SheDefense.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
