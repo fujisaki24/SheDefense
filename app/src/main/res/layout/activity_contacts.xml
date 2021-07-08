@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactsActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contacts"
+        android:layout_alignParentTop="true"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:fontFamily="@font/comfortaa_bold"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/pinkPrimary"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/profile_bg"
+        android:elevation="5dp"
+        android:layout_marginTop="120dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageButton
+            android:id="@+id/addbtn1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/addbtn_bg"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_baseline_add_24"
+            android:tint="@color/white"/>
+
+        <TextView
+            android:id="@+id/name1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name:"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/comfortaa_light"/>
+
+        <TextView
+            android:id="@+id/num1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number:"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/comfortaa_light"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/profile_bg"
+        android:elevation="5dp"
+        android:layout_marginTop="280dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageButton
+            android:id="@+id/addbtn2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/addbtn_bg"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_baseline_add_24"
+            android:tint="@color/white"/>
+
+        <TextView
+            android:id="@+id/name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name:"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/comfortaa_light"/>
+
+        <TextView
+            android:id="@+id/num2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number:"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/comfortaa_light"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/profile_bg"
+        android:elevation="5dp"
+        android:layout_marginTop="440dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageButton
+            android:id="@+id/addbtn3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/addbtn_bg"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_baseline_add_24"
+            android:tint="@color/white"/>
+
+        <TextView
+            android:id="@+id/name3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name:"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/comfortaa_light"/>
+
+        <TextView
+            android:id="@+id/num3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number:"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/comfortaa_light"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="*Can add upto 3 contacts"
+        android:fontFamily="@font/comfortaa_light"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="50dp"/>
+
+
+</RelativeLayout>

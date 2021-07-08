@@ -28,6 +28,10 @@ import android.widget.Toast;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import static android.Manifest.permission.READ_PHONE_NUMBERS;
+import static android.Manifest.permission.READ_PHONE_STATE;
+import static android.Manifest.permission.READ_SMS;
+
 public class HomeActivity extends AppCompatActivity {
 
     private static final int REQUEST_PHONE_CALL=1;
@@ -81,7 +85,8 @@ public class HomeActivity extends AppCompatActivity {
         contacts_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Hi,is the contacts showing?",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(),ContactsActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -158,6 +163,9 @@ public class HomeActivity extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(HomeActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(new String[]{READ_SMS, READ_PHONE_NUMBERS, READ_PHONE_STATE}, 100);
+        }
 
     }
 

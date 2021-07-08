@@ -16,6 +16,10 @@ import android.provider.Settings;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import static android.Manifest.permission.READ_PHONE_NUMBERS;
+import static android.Manifest.permission.READ_PHONE_STATE;
+import static android.Manifest.permission.READ_SMS;
+
  public class MainActivity extends AppCompatActivity {
 
 
@@ -67,6 +71,9 @@ import android.widget.ImageView;
          if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
              ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
 
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+             requestPermissions(new String[]{READ_SMS, READ_PHONE_NUMBERS, READ_PHONE_STATE}, 100);
+         }
 
      }
  }
