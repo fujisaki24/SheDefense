@@ -9,6 +9,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -36,6 +38,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private static final int REQUEST_PHONE_CALL=1;
     private static final int REQUEST_LOCATION=1;
+    private static int LOCATION_PERMISSION_CODE = 1000;
     private static final String myPreference = "Camalot";
     Toolbar toolbar;
     TextView data_name;
@@ -76,8 +79,15 @@ public class HomeActivity extends AppCompatActivity {
                 else
                 {
                     Intent intent = new Intent(HomeActivity.this,WidgetService.class);
-                    startService(intent);
-                    finish();
+                    if (isMyServiceRunning(WidgetService.class)) {
+                        stopService(intent);
+                        startService(intent);
+                        finish();
+                    }
+                    else {
+                        startService(intent);
+                        finish();
+                    }
                 }
             }
         });
@@ -128,6 +138,16 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_items,menu);
@@ -162,6 +182,10 @@ public class HomeActivity extends AppCompatActivity {
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(HomeActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_CODE);
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(new String[]{READ_SMS, READ_PHONE_NUMBERS, READ_PHONE_STATE}, 100);

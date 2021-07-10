@@ -28,6 +28,7 @@ import static android.Manifest.permission.READ_SMS;
      private static final int REQUEST_PHONE_CALL=1;
      private static final int REQUEST_LOCATION=1;
      private static final String myPreference = "Camalot";
+     private static int LOCATION_PERMISSION_CODE = 1000;
      private static int splash_timeout = 4000;
 
     @Override
@@ -71,8 +72,13 @@ import static android.Manifest.permission.READ_SMS;
          if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
              ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
 
+         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_CODE);
+
          if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
              requestPermissions(new String[]{READ_SMS, READ_PHONE_NUMBERS, READ_PHONE_STATE}, 100);
+
+
          }
 
      }

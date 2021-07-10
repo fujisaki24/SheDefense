@@ -5,6 +5,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
+import android.location.Location;
 import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -22,20 +23,29 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 
-public class WidgetService extends Service
-{
+import org.jetbrains.annotations.NotNull;
+
+
+public class WidgetService extends Service {
 
     int LAYOUT_FLAG;
-    float height,width;
+    float height, width;
     WindowManager wm;
     View mFloatingView;
-    ImageButton alarm_btn,call_btn,phonebook_btn,sms_btn,close_btn;
-    boolean onClickedAlarm=false;
+    ImageButton alarm_btn, call_btn, phonebook_btn, sms_btn, close_btn;
+    boolean onClickedAlarm = false;
     private final static String default_notification_channel_id = "default";
     MediaPlayer mPlayer;
+    FusedLocationProviderClient fusedLocationProviderClient;
 
 
     @Nullable
@@ -45,8 +55,7 @@ public class WidgetService extends Service
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId)
-    {
+    public int onStartCommand(Intent intent, int flags, int startId) {
         super.onCreate();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
@@ -57,9 +66,7 @@ public class WidgetService extends Service
         mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.alarm);
 
 
-
-
-        wm = (WindowManager)getSystemService(WINDOW_SERVICE);
+        wm = (WindowManager) getSystemService(WINDOW_SERVICE);
         mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_widget, null);
         height = wm.getDefaultDisplay().getHeight();
         width = wm.getDefaultDisplay().getWidth();
@@ -74,18 +81,18 @@ public class WidgetService extends Service
         mFloatingView.setBackgroundResource(R.drawable.bg_overlay);
         mFloatingView.setVisibility(View.VISIBLE);
 
-        close_btn = (ImageButton)mFloatingView.findViewById(R.id.close_btn);
-        alarm_btn = (ImageButton)mFloatingView.findViewById(R.id.alarm_btn);
-        call_btn = (ImageButton)mFloatingView.findViewById(R.id.call_btn);
-        phonebook_btn = (ImageButton)mFloatingView.findViewById(R.id.phone_btn);
-        sms_btn = (ImageButton)mFloatingView.findViewById(R.id.sms_btn);
+        close_btn = (ImageButton) mFloatingView.findViewById(R.id.close_btn);
+        alarm_btn = (ImageButton) mFloatingView.findViewById(R.id.alarm_btn);
+        call_btn = (ImageButton) mFloatingView.findViewById(R.id.call_btn);
+        phonebook_btn = (ImageButton) mFloatingView.findViewById(R.id.phone_btn);
+        sms_btn = (ImageButton) mFloatingView.findViewById(R.id.sms_btn);
 
 
         close_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 stopSelf();
-                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
@@ -113,18 +120,15 @@ public class WidgetService extends Service
             }
 
             private void TriggerAlarmFunction(boolean onClickedAlarm) {
-                if(!onClickedAlarm)
-                {
+                if (!onClickedAlarm) {
                     mPlayer.start();
                     alarm_btn.setBackgroundResource(R.drawable.alarm_overlay_selected);
-                    Toast.makeText(getApplicationContext(),"Security Alarm Enabled",Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
+                    Toast.makeText(getApplicationContext(), "Security Alarm Enabled", Toast.LENGTH_SHORT).show();
+                } else {
                     mPlayer.stop();
-                    mPlayer  = MediaPlayer.create(getApplicationContext(), R.raw.alarm);
+                    mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.alarm);
                     alarm_btn.setBackgroundResource(R.drawable.alarm_overlay);
-                    Toast.makeText(getApplicationContext(),"Security Alarm Disabled",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Security Alarm Disabled", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -135,12 +139,9 @@ public class WidgetService extends Service
                 Intent intent = new Intent(Intent.ACTION_CALL);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setData(Uri.parse("tel:100"));
-                if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
-                {
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(getApplicationContext(), "Call Permission Denied by the User", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
+                } else {
                     Toast.makeText(getApplicationContext(), "Calling Police", Toast.LENGTH_SHORT).show();
                     //startActivity(intent);
                 }
@@ -154,14 +155,11 @@ public class WidgetService extends Service
                 Intent intent = new Intent(Intent.ACTION_CALL);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setData(Uri.parse("tel:181"));
-                if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
-                {
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(getApplicationContext(), "Call Permission Denied by the User", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
+                } else {
                     Toast.makeText(getApplicationContext(), "Calling Women Safety Helpline", Toast.LENGTH_SHORT).show();
-                   // startActivity(intent);
+                    // startActivity(intent);
                 }
                 return true;
             }
@@ -173,16 +171,16 @@ public class WidgetService extends Service
                 Intent opencontacts = new Intent(Intent.ACTION_VIEW, ContactsContract.Contacts.CONTENT_URI);
                 opencontacts.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(opencontacts);
-                Toast.makeText(getApplicationContext(),"Opening Contacts",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Opening Contacts", Toast.LENGTH_SHORT).show();
             }
         });
 
         phonebook_btn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                /*Intent open_emg = new Intent(getApplicationContext(),DataActivity.class);
+                Intent open_emg = new Intent(getApplicationContext(), ContactsActivity.class);
                 open_emg.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(open_emg);*/
+                startActivity(open_emg);
                 return true;
             }
         });
@@ -190,34 +188,33 @@ public class WidgetService extends Service
         sms_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Feature Disabled", Toast.LENGTH_SHORT).show();
-                /*Intent open_map = new Intent(getApplicationContext(),SMSapp.class);
+                //Toast.makeText(getApplicationContext(), "Feature Disabled", Toast.LENGTH_SHORT).show();
+                Intent open_map = new Intent(getApplicationContext(),SMSActivity.class);
                 open_map.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  //9521201009
                 startActivity(open_map);
-                Toast.makeText(getApplicationContext(), "sending SMS with location", Toast.LENGTH_SHORT).show();*/
+                // Toast.makeText(getApplicationContext(), "sending SMS with location", Toast.LENGTH_SHORT).show();
             }
         });
 
         mFloatingView.setOnTouchListener(new View.OnTouchListener() {
-            int InitialX,InitialY;
-            float InitialTouchX,InitialTouchY;
+            int InitialX, InitialY;
+            float InitialTouchX, InitialTouchY;
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                switch(event.getAction())
-                {
+                switch (event.getAction()) {
                     case MotionEvent.ACTION_MOVE:
-                        layoutParams.x = InitialX + (int)(InitialTouchX-event.getRawX());
-                        layoutParams.y = InitialY + (int)(event.getRawY()-InitialTouchY);
-                        wm.updateViewLayout(mFloatingView,layoutParams);
+                        layoutParams.x = InitialX + (int) (InitialTouchX - event.getRawX());
+                        layoutParams.y = InitialY + (int) (event.getRawY() - InitialTouchY);
+                        wm.updateViewLayout(mFloatingView, layoutParams);
                         return true;
 
 
-
                     case MotionEvent.ACTION_DOWN:
-                        InitialX=layoutParams.x;
-                        InitialY=layoutParams.y;
-                        InitialTouchX=event.getRawX();
-                        InitialTouchY=event.getRawY();
+                        InitialX = layoutParams.x;
+                        InitialY = layoutParams.y;
+                        InitialTouchX = event.getRawX();
+                        InitialTouchY = event.getRawY();
                         return true;
 
 
@@ -228,6 +225,7 @@ public class WidgetService extends Service
 
         return START_STICKY;
     }
+
 
 
 

@@ -21,7 +21,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 public class SettingsActivity extends AppCompatActivity {
 
     private static final String myPreference = "Camalot";
-    RelativeLayout changenamebtn,show_tut;
+    RelativeLayout changenamebtn,show_tut,check_permission;
     TextView usrname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,7 @@ public class SettingsActivity extends AppCompatActivity {
         usrname = findViewById(R.id.username);
         changenamebtn = findViewById(R.id.change_name_settings);
         show_tut = findViewById(R.id.show_tut);
+        check_permission = findViewById(R.id.check_permission_btn);
 
         //String Database_Name = sharedPreferences.getString("Username","No");
         loadname();
@@ -48,7 +49,6 @@ public class SettingsActivity extends AppCompatActivity {
                 editText.setTypeface(font);
                 editText.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.pinkPrimary)));
                 dialogBuilder.setView(editText,50,0,50,0);
-                //dialogBuilder.setView(editText);
                 dialogBuilder.setPositiveButton("Change", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -56,7 +56,7 @@ public class SettingsActivity extends AppCompatActivity {
                         SharedPreferences sharedPreferences = getSharedPreferences(myPreference,MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("Username",name);
-                        editor.commit();
+                        editor.apply();
                         loadname();
 
                     }
@@ -70,6 +70,13 @@ public class SettingsActivity extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(),"Ennada Myre",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),IntroActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        check_permission.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Check Permission Feature has not been set!",Toast.LENGTH_SHORT).show();
             }
         });
     }
